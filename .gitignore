@@ -8,3 +8,5 @@ __pycache__/
 data/
 dist/
 *.egg-info/
+# 官方导出原件包含真实调用凭据；仓库仅保存明确命名的脱敏副本。
+xunji-all-skills.md

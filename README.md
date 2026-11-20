@@ -2,6 +2,14 @@
 
 个人使用的训记 Open API → MCP 适配器。非训记官方项目。通过 Streamable HTTP 和 GitHub OAuth 提供训练、计划、饮食、身体数据及 Agent 个人模板工具。
 
+## 接口文档与 Key 对应
+
+- [接口索引和凭据对应表](docs/README.md)：各类 Key 的用途、出处、已实现范围及待联调事项。
+- [官方 Skill 脱敏参考副本](docs/reference/xunji-all-skills.sanitized.md)：用户于 2026-11-20 提供并确认为官方导出的文件；保留正文和请求示例，将 5 项凭据的 15 处出现替换为占位符。
+- 官方饮食 Skill 的“鉴权”段分别给出饮食记录与食物搜索的凭据，本次原件中的两项值不同。`XUNJI_FOOD_SEARCH_KEY` 取自“食物搜索接口请求头”，无需自行生成搜索密码；不要把它与 `XUNJI_FOOD_KEY` 混填。
+
+文档归档不表示真实 API 已验证。原始含 Key 文件不提交到 Git；后续更新也先脱敏，再核对与当前实现的差异。
+
 ## 运行方式
 
 Python 3.14、FastMCP 4.2.3；依赖由 `uv.lock` 和带哈希的 `requirements.txt` 固定。发布标签触发 GitHub Actions 测试并构建 Linux amd64 镜像 `ghcr.io/aice-chen/xunji-mcp:v0.1.0`。
