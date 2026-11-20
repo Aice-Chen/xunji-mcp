@@ -35,11 +35,14 @@ jobs:
       - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8
         with:
           context: .
-          push: true
+          load: true
+          push: false
           platforms: linux/amd64
-          tags: ghcr.io/aice-chen/xunji-mcp:${{ github.ref_name }}
+          tags: |
+            xunji-mcp:test
+            ghcr.io/aice-chen/xunji-mcp:${{ github.ref_name }}
           labels: |
             org.opencontainers.image.source=https://github.com/Aice-Chen/xunji-mcp
             org.opencontainers.image.description=Personal Xunji MCP adapter
-
-
+      - run: python scripts/smoke_container.py
+      - run: docker push ghcr.io/aice-chen/xunji-mcp:${{ github.ref_name }}

@@ -15,4 +15,3 @@ pythonpath = ["."]
 
 [tool.ruff]
 line-length = 110
-
